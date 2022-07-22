@@ -10,15 +10,17 @@ public class App {
 	public static void main(String[] args) throws IOException, InterruptedException {
 
 		// String url = "https://imdb-api.com/en/API/Top250Movies/k_xqnfc8l9";
-		String url = "https://api.mocki.io/v2/549a5d8b/Top250Movies";
+		// String url = "https://api.mocki.io/v2/549a5d8b/Top250Movies";
 		// String url =
 		// "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2022-06-12&end_date=2022-06-14";
+		String url = "http://0.0.0.0:8080/linguagens";
 
 		ClienteHttp http = new ClienteHttp();
 		String json = http.buscaDados(url);
 
 		// ExtratorDeConteudo extrator = new ExtratorDeConteudoDaNasa();
-		ExtratorDeConteudo extrator = new ExtratorDeConteudoDoIMDB();
+		//ExtratorDeConteudo extrator = new ExtratorDeConteudoDoIMDB();
+		ExtratorDeConteudo extrator = new ExtratorDeConteudoLocal();
 
 		List<Conteudo> conteudos = extrator.extraiConteudos(json);
 
